@@ -1,6 +1,6 @@
 import {applyMiddleware, createStore} from 'redux'
 import reduxThunk from 'redux-thunk';
-import reducers from './reducers'
+import reducers from './reducers/index'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import {setupInterceptors} from "./apis/customAxios";
 

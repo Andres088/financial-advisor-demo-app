@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-const loading = (
-    <div className="pt-3 text-center">
-        <div className="sk-spinner sk-spinner-pulse">
-        </div>
-    </div>
-)
-
-// Containers
-const TheLayout = React.lazy(() => import('./containers/TheLayout'));
+import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from "./views/Home";
+import Recommendation from "./views/Recommendation";
+import PageLayout from "./components/PageLayout";
 
 class App extends Component {
-
     render() {
         return (
-            <BrowserRouter>
-                <React.Suspense fallback={loading}>
+            <PageLayout>
+                <BrowserRouter>
                     <Switch>
-                        <Route path="/" name="Home" render={props => <TheLayout {...props}/>} />
+                        <Route
+                            path="/"
+                            name="Home"
+                            render={props => <Home {...props}/>}
+                        />
+                        <Route
+                            path="/recommendation"
+                            name="Recommendation"
+                            render={props => <Recommendation {...props}/>}
+                        />
                     </Switch>
-                </React.Suspense>
-            </BrowserRouter>
+                </BrowserRouter>
+            </PageLayout>
         );
     }
 }

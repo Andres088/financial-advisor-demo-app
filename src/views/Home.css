@@ -1,0 +1,6 @@
+img, button {
+    border-style: solid !important;;
+    border-width: 3px !important;;
+    border-radius: 10px !important;;
+    border-color: black !important;
+}
