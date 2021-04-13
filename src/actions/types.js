@@ -1,2 +1,3 @@
 
 export const SET_RISK_LEVEL = 'SET_RISK_LEVEL';
+export const SET_PORTFOLIO_VIEW = 'SET_PORTFOLIO_VIEW';

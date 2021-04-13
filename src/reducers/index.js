@@ -1,6 +1,7 @@
 import {combineReducers} from "redux";
-import {riskLevel} from "./general";
+import {riskLevel, portfolioView} from "./general";
 
 export default combineReducers({
-    riskLevel
+    riskLevel,
+    portfolioView
 })
