@@ -11,7 +11,7 @@ For more details about the business logic, check the [requirements](https://driv
 
 In the next video recording the app is showcased and all its features described. It also provides a few commentaries about the implementation.
 
-[![Video Link](https://i.imgur.com/hdbUg2n.png)](http://www.youtube.com/watch?v=nm3VCXk_ya8 "Video Title")
+[![Video Link](https://i.imgur.com/hdbUg2n.png)](http://www.youtube.com/watch?v=nm3VCXk_ya8 "Video Link")
 
 ## Transfer algorithm
 
