@@ -100,7 +100,7 @@ const PortfolioAdvice = ({selectedRiskLevel, currentPortfolio, setPortfolioView,
             <div className="grid-x grid-margin-x">
                 <div className="cell auto">
                     <h5 style={{marginTop: '0.5rem'}}>
-                        {calculated? `Recommended transactions to adjust to Risk Level ${selectedRiskLevel}`: ''}
+                        {calculated? `Recommended Investment Amounts for Risk Level ${selectedRiskLevel}`: ''}
                     </h5>
                 </div>
                 <div className="cell shrink">

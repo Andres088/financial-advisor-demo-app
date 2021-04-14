@@ -4,10 +4,12 @@ import {portfolioData} from "../../helpers/mockData";
 import _ from 'lodash'
 import {roundToTwoDecimals} from "../../helpers/utils";
 import TransferArrows from "./TransferArrows";
+import GenericTable from "../../components/GenericTable";
 
 const RecommendedTransfers = ({ready, reloadTransfers, currentPortfolio, riskData}) => {
 
     const [transfers, setTransfers] = useState([]);
+    const [targetAmountsData, setTargetAmountsData] = useState([])
 
     useEffect(() => {
         if (ready) calculateTransfers();
@@ -26,12 +28,13 @@ const RecommendedTransfers = ({ready, reloadTransfers, currentPortfolio, riskDat
             currentInvestments[investment] = amount;
         }
 
-        function getTargetAmonts() {
+        function getTargetAmounts() {
             const targetAmounts = {}
             for (const investment in currentInvestments) {
                 const percentage = riskData[_.camelCase(investment)];
                 targetAmounts[investment] = roundToTwoDecimals(totalAmount * percentage / 100);
             }
+            setTargetAmountsData([targetAmounts])
             return targetAmounts;
         }
 
@@ -48,7 +51,7 @@ const RecommendedTransfers = ({ready, reloadTransfers, currentPortfolio, riskDat
             return [differences, differencesAmount] ;
         }
 
-        const targetAmounts = getTargetAmonts();
+        const targetAmounts = getTargetAmounts();
         let [differences, differencesAmount] = getDifferences();
         let count = 0;
         const transfers = [];
@@ -79,23 +82,31 @@ const RecommendedTransfers = ({ready, reloadTransfers, currentPortfolio, riskDat
             count += 1;
             if (count === 20) break;
         }
-        console.log('Total Transfers', transfers);
         setTransfers(transfers);
     }
 
 
     if (!ready) return null;
     else return (
-        <div className="card">
-            <div className="card-section">
-                <TransferArrows transfers={transfers}/>
+        <>
+            <GenericTable
+                data={targetAmountsData}
+                headers={Object.keys(currentPortfolio).map(e => e + ' US$')}
+            />
+            <h5 style={{marginTop: '1rem', marginBottom: '1rem'}}>
+                {`Recommended distribution for Risk Level ${riskData.risk}`}
+            </h5>
+            <div className="card">
+                <div className="card-section">
+                    <TransferArrows transfers={transfers}/>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
 const mapStatesToProps = ({currentPortfolio, riskLevel}) => {
-    let riskData = portfolioData.filter(e => e.risk === riskLevel)[0];
+    const riskData = portfolioData.filter(e => e.risk === riskLevel)[0];
     return {currentPortfolio, riskData}
 }
 
