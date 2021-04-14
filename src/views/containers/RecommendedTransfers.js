@@ -94,7 +94,7 @@ const RecommendedTransfers = ({ready, reloadTransfers, currentPortfolio, riskDat
                 headers={Object.keys(currentPortfolio).map(e => e + ' US$')}
             />
             <h5 style={{marginTop: '1rem', marginBottom: '1rem'}}>
-                {`Recommended distribution for Risk Level ${riskData.risk}`}
+                {`Recommended transfers to adjust to Risk Level ${riskData.risk}`}
             </h5>
             <div className="card">
                 <div className="card-section">

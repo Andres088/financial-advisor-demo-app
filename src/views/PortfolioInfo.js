@@ -36,7 +36,7 @@ const PortfolioInfo = ({selectedRiskLevel, setPortfolioView}) => {
     return (
         <>
             <h5>Please select a risk level for your investment portafolio</h5>
-            <Grid className="display">
+            <Grid className="display" style={{marginBottom: '1rem'}}>
                 {_.range(1, 11).map(num => {
                     return <RiskLevelSquare key={num} squareRiskLevel={num}/>
                 })}
@@ -45,7 +45,7 @@ const PortfolioInfo = ({selectedRiskLevel, setPortfolioView}) => {
                         type="button"
                         className={`button ${!selectedRiskLevel? 'disabled': ''}`}
                         onClick={onClickContinue}
-                        style={{marginLeft: '1rem'}}
+                        style={{marginLeft: '1rem', marginTop: '0.5rem'}}
                     >
                         Continue
                     </button>

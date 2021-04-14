@@ -12,7 +12,7 @@ export const RiskLevelSquare = ({squareRiskLevel, currentRiskLevel, setRiskLevel
     const onClick = () => setRiskLevel(squareRiskLevel);
 
     return (
-        <Cell small={1} large={1}>
+        <Cell small={2} large={1} style={{marginTop: '0.5rem'}}>
             <div className="square" onClick={onClick} style={selectedStyle}>
                 {squareRiskLevel}
             </div>
