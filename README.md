@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Financial Avisor Demo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made to complete a challenge on ReactJS in my workplace. 
 
-## Available Scripts
+The designed app works as a financial advisor who asks the user about his prefered risk level and based on that proceeds to offer a portfolio of investments according to that risk level.
+The user can also input his current investment portfolio, so the app can calculate the necessary transfers between investments so the user can hit the desired risk level.
 
-In the project directory, you can run:
+For more details about the business logic, check the [requirements](https://drive.google.com/file/d/1jd_KRJBwrZKApQr6a3PLRnK8VPWY6LsV/view?usp=sharing) for this app.
 
+## Demo video
+
+In the next video recording the app is showcased and all its features described. It also provides a few commentaries about the implementation.
+
+## Transfer algorithm
+
+One of the features involves recommending the user a list of transfers to move from his current portfolio arrange to the adviced portfolio based on his prefered risk level. 
+#### Current Portfolio 
+Investment | Amount | Percentage
+------------ | ------------- | -------------
+Bonds | 10,000 US$ | 10%
+Large Cap | 20,000 US$ | 20%
+Mid Cap | 50,000 US$ | 50%
+Foreign | 15,000 US$ | 15%
+Small Cap | 5,000 US$ | 5%
+#### Advised Portfolio por Risk Level 5
+Investment | Amount | Percentage
+------------ | ------------- | -------------
+Bonds | 40,000 US$ | 40%
+Large Cap | 20,000 US$ | 20%
+Mid Cap | 20,000 US$ | 20%
+Foreign | 20,000 US$ | 20%
+Small Cap | 0 US$ | 0%
+
+Assuming the amount of transfers matters, as the lesser the better, an algorithm was necessary to implement to calculate the least amount of transfers to move from one portfolio arrage to another.
+
+So an algorithm was proposed to solve this problem, which is described in the next steps:
+
+1. Calculate the differences between the amounts of the current portfolio and the advised portfolio.
+   
+   Investment | Current | Advised | Difference  
+   ------------ | ------------- | ------------- | -------------
+   Bonds | 10,000 US$ | 40,000 US$ | +30,000 US$
+   Large Cap | 20,000 US$ | 20,000 US$ | 0 US$
+   Mid Cap | 50,000 US$ | 20,000 US$ | -30,000 US$ 
+   Foreign | 15,0000 US$ | 20,000 US$ | +5,000 US$
+   Small Cap | 5000 US$ | 0 US$ | -5,000 US$
+
+2. If all differences are equal to zero, go to the step 10. 
+3 Pick the highest difference investment (HDI) and lowest one (LDI).
+4. Register in memory a transfer** from the HDI to the LDI.    
+5. Sum the HDI difference with the LDI difference.
+6. If the result is 0 or higher, the amount of the transaction is exactly the lowest difference investment needs to reach the advised amount.
+7. If the result is less than 0, the amount of the transaction is the difference amount of the highest difference investment.
+8. Update the Current Portfolio amounts, based on the recommended transfer done.
+9. Go back to step 1.   
+10. List the registered recommended transfers. 
+
+** Not an actual transfer, just for calculating the recommended transfers.
+
+## Installation
+To run this app in local host, simply clone this repository, open a command line interface in the project directory and execute the following commands:
+### `npm install`
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
