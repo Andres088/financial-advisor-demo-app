@@ -1,15 +1,18 @@
 import React from "react";
 import TopBar from "./TopBar";
 import Jumbotron from "./Jumbotron";
+import {Grid, Cell} from "react-foundation";
 
 const PageLayout = ({children}) => {
     return (
         <>
             <TopBar/>
             <Jumbotron/>
-            <div className="row medium-8 large-7 columns">
-                {children}
-            </div>
+            <Grid className="display">
+                <Cell small={1} large={3}> </Cell>
+                <Cell small={10} large={6}>{children}</Cell>
+                <Cell small={1} large={3}> </Cell>
+            </Grid>
         </>
     )
 }

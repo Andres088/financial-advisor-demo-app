@@ -1,6 +1,10 @@
-img, button {
+img {
     border-style: solid !important;;
     border-width: 3px !important;;
     border-radius: 10px !important;;
     border-color: black !important;
+}
+
+button {
+    border-radius: 10px !important;;
 }

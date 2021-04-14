@@ -9,6 +9,7 @@ import PortfolioDonut from "./containers/PortfolioDonut";
 import {setPortfolioView} from "../actions/general";
 import './PortfolioInfo.css'
 import {PORTFOLIO_ADVICE} from "../helpers/constants";
+import {Cell, Grid} from "react-foundation";
 
 const PortfolioInfo = ({selectedRiskLevel, setPortfolioView}) => {
 
@@ -28,40 +29,41 @@ const PortfolioInfo = ({selectedRiskLevel, setPortfolioView}) => {
     }
 
     const getImageStyle = () => {
-        if (selectedRiskLevel) return {cursor: 'pointer'}
-        else return {filter: 'grayscale(100%)'}
+        if (selectedRiskLevel) return {cursor: 'pointer', marginLeft: '1rem'}
+        else return {filter: 'grayscale(100%)', marginLeft: '1rem'}
     }
 
     return (
         <>
             <h5>Please select a risk level for your investment portafolio</h5>
-            <div className="row">
+            <Grid className="display">
                 {_.range(1, 11).map(num => {
                     return <RiskLevelSquare key={num} squareRiskLevel={num}/>
                 })}
-                <div className="small-2 columns">
+                <Cell small={3} large={2}>
                     <button
                         type="button"
                         className={`button ${!selectedRiskLevel? 'disabled': ''}`}
                         onClick={onClickContinue}
+                        style={{marginLeft: '1rem'}}
                     >
                         Continue
                     </button>
-                </div>
-            </div>
-            <div className="row" style={{marginTop: '2rem'}}>
-                <div className="small-10 columns">
+                </Cell>
+            </Grid>
+            <Grid className="display">
+                <Cell small={12} large={10}>
                     {renderContent()}
-                </div>
-                <div className="small-2 columns">
+                </Cell>
+                <Cell small={2} large={2}>
                     <img
                         src={showDonut ? tableLogo : donutLogo}
                         onClick={onClickImage}
                         alt="View table or graphic"
                         style={getImageStyle()}
                     />
-                </div>
-            </div>
+                </Cell>
+            </Grid>
         </>
     )
 }

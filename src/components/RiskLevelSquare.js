@@ -2,6 +2,7 @@ import React from "react";
 import './RiskLevelSquare.css'
 import {connect} from 'react-redux';
 import {setRiskLevel} from "../actions/general";
+import {Cell} from "react-foundation";
 
 export const RiskLevelSquare = ({squareRiskLevel, currentRiskLevel, setRiskLevel}) => {
 
@@ -11,11 +12,11 @@ export const RiskLevelSquare = ({squareRiskLevel, currentRiskLevel, setRiskLevel
     const onClick = () => setRiskLevel(squareRiskLevel);
 
     return (
-        <div className="small-1 columns">
+        <Cell small={1} large={1}>
             <div className="square" onClick={onClick} style={selectedStyle}>
                 {squareRiskLevel}
             </div>
-        </div>
+        </Cell>
     )
 }
 

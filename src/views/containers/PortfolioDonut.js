@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {ResponsivePie} from '@nivo/pie';
-import {portfolioData} from "../../apis/mockData";
+import {portfolioData} from "../../helpers/mockData";
 import {connect} from "react-redux";
 
 const PortfolioDonut = ({riskLevel}) => {
