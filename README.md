@@ -1,4 +1,4 @@
-# Financial Avisor Demo App
+# Financial Advisor Demo App
 
 This project was made to complete a challenge on ReactJS in my workplace. 
 
