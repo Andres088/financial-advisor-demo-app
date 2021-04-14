@@ -7,6 +7,8 @@ The user can also input his current investment portfolio, so the app can calcula
 
 For more details about the business logic, check the [requirements](https://drive.google.com/file/d/1jd_KRJBwrZKApQr6a3PLRnK8VPWY6LsV/view?usp=sharing) for this app.
 
+This example app was deployed to Netlify and you can try it just [right here](https://hopeful-clarke-54f3c3.netlify.app).
+
 ## Demo video
 
 In the next video recording the app is showcased and all its features described. It also provides a few commentaries about the implementation.
@@ -60,7 +62,7 @@ So an algorithm was proposed to solve this problem, which is described in the ne
 ** Not an actual transfer, just for calculating the recommended transfers.
 
 ## Installation
-To run this app in local host, simply clone this repository, open a command line interface in the project directory and execute the following commands:
+To run this app in local host, simply clone this repository, open a command line interface in the project directory and execute the following commands in order:
 ### `npm install`
 ### `npm start`
 
