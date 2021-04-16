@@ -1,11 +1,11 @@
 import React from "react";
 import './InputInvestment.css'
 import {connect} from 'react-redux';
-import {setInvestmentAmount} from "../../actions/general";
+import {setInvestmentAmount} from "../../../actions/general";
 
 const InputInvestment = ({investment, percentage, amount, setInvestmentAmount}) => {
-
-    const inputStyle = {maxWidth: '8rem', height: '2rem', borderRadius: '3px'}
+    // Stores the user input amount in the Redux store
+    // and displays the percentage from the store too
 
     const onChangeAmount = event => {
         setInvestmentAmount(investment, event.target.value)
@@ -17,7 +17,6 @@ const InputInvestment = ({investment, percentage, amount, setInvestmentAmount}) 
             <td>
                 <input
                     type="number"
-                    style={inputStyle}
                     value={amount}
                     onChange={onChangeAmount}
                 />
@@ -25,7 +24,6 @@ const InputInvestment = ({investment, percentage, amount, setInvestmentAmount}) 
             <td>
                 <input
                     type="number"
-                    style={inputStyle}
                     value={percentage}
                     disabled
                 />

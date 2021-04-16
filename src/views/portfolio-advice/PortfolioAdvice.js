@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import _ from 'lodash';
-import GenericTable from "../components/GenericTable";
-import {portfolioData} from "../helpers/mockData";
-import {setPortfolioView, setInvestmentPercentage} from "../actions/general";
-import {PORTFOLIO_INFO} from "../helpers/constants";
+import GenericTable from "../../components/GenericTable";
+import {portfolioData} from "../../helpers/mockData";
+import {setPortfolioView, setInvestmentPercentage} from "../../actions/general";
+import {PORTFOLIO_INFO} from "../../helpers/constants";
 import InputInvestment from "./containers/InputInvestment";
 import RecommendedTransfers from "./containers/RecommendedTransfers";
-
+import './PortfolioAdvice.css'
 
 const PortfolioAdvice = ({selectedRiskLevel, currentPortfolio, setPortfolioView, setInvestmentPercentage}) => {
 
@@ -16,8 +16,6 @@ const PortfolioAdvice = ({selectedRiskLevel, currentPortfolio, setPortfolioView,
     const investments = ['Bonds', 'Large Cap', 'Mid Cap', 'Foreign', 'Small Cap'];
     const [calculated, setCalculated] = useState(false);
     const [reloadTransfers, setReloadTransfers] = useState(false);
-
-
 
     useEffect(() => {
         if (selectedRiskLevel) {
@@ -82,7 +80,7 @@ const PortfolioAdvice = ({selectedRiskLevel, currentPortfolio, setPortfolioView,
                 headers={headers}
                 data={tableData}
             />
-            <h5 style={{marginBottom: '1rem'}}>Please enter your current Portfolio</h5>
+            <h5 id="enter-portfolio-heading">Please enter your current Portfolio</h5>
             <table className="unstriped">
                 <thead>
                 <tr>
@@ -99,7 +97,7 @@ const PortfolioAdvice = ({selectedRiskLevel, currentPortfolio, setPortfolioView,
             </table>
             <div className="grid-x grid-margin-x">
                 <div className="cell auto">
-                    <h5 style={{marginTop: '0.5rem'}}>
+                    <h5 id="investment-amounts-heading">
                         {calculated? `Recommended Investment Amounts for Risk Level ${selectedRiskLevel}`: ''}
                     </h5>
                 </div>

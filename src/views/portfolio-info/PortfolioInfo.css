@@ -1,0 +1,29 @@
+img {
+    border-style: solid !important;;
+    border-width: 3px !important;;
+    border-radius: 10px !important;;
+    border-color: black !important;
+}
+
+button {
+    border-radius: 10px !important;;
+}
+
+.display {
+    margin-bottom: 1rem;
+}
+
+.continue {
+    margin-left: 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.image-clickable {
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.image-unclickable {
+    filter: grayscale(100%);
+    margin-left: 1rem;
+}

@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {ResponsivePie} from '@nivo/pie';
-import {portfolioData} from "../../helpers/mockData";
+import {portfolioData} from "../../../helpers/mockData";
 import {connect} from "react-redux";
+import './PortfolioDonut.css'
 
 const PortfolioDonut = ({riskLevel}) => {
+    // Donut or pie (same thing) to display portfolio percentage investments
+    // for the risk level selected
 
     const [data, setData] = useState([]);
 
@@ -21,7 +24,7 @@ const PortfolioDonut = ({riskLevel}) => {
     }, [riskLevel])
 
     return (
-        <div style={{'height': '500px'}}>
+        <div id="pie-container">
             <ResponsivePie
                 data={data}
                 margin={{top: 40, right: 80, bottom: 80, left: 80}}

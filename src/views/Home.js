@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import PortfolioInfo from "./PortfolioInfo";
-import PortfolioAdvice from "./PortfolioAdvice";
+import PortfolioInfo from "./portfolio-info/PortfolioInfo";
+import PortfolioAdvice from "./portfolio-advice/PortfolioAdvice";
 import {PORTFOLIO_ADVICE, PORTFOLIO_INFO} from "../helpers/constants";
 
 const Home = ({portfolioView}) => {

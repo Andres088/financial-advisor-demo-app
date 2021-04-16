@@ -1,6 +1,6 @@
 import React from "react";
 
-const GenericTable = ({data, headers, rowStyle=null}) => {
+const GenericTable = ({data, headers, customRow=null}) => {
 
     return (
         <table className="unstriped">
@@ -13,8 +13,9 @@ const GenericTable = ({data, headers, rowStyle=null}) => {
             </thead>
             <tbody>
             {data.map((row, index) => {
-                return (
-                    <tr key={`tr-${index}`} style={rowStyle? rowStyle(row): null}>
+                if (customRow) return customRow(row, index);
+                else return (
+                    <tr key={`tr-${index}`}>
                         {Object.keys(row).map((field, index) => {
                             return <td key={`td-${index}`}>{row[field]}</td>;
                         })}
